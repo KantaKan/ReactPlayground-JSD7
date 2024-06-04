@@ -63,10 +63,10 @@ const Currenttime = () => {
   }
 
   useEffect(() => {
+    gettime()
     const intervalID = setInterval(() => {
       setCurrenttime(new Date().toLocaleTimeString())
     },1000)
-    gettime()
     return () => clearInterval(intervalID)
   },[])
 
