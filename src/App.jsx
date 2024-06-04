@@ -12,7 +12,7 @@ function App() {
   }
   return (
     <>     
-    <div className=' justify-evenly flex text-4xl bg-yellow-300 font-extrabold text-indigo-400'>{count}</div>
+    <div className=' justify-center flex text-4xl bg-yellow-300 font-extrabold text-indigo-400'> count = {count} </div>
     <CardComp  decreaseCount={decreaseCount} counthandle={handleCount}/>
     <IsToggled />
     <Currenttime />
@@ -24,11 +24,13 @@ function App() {
 const CardComp = ({counthandle,decreaseCount}) => {
   
   return (
-    <div className='flex justify-center h-42 bg-green-300  h-24'>
+    <div className='flex flex-col justify-center h-42 bg-green-300  h-24'>
 
-      <h2 className=' self-center'>Hello h2</h2>
-      <button className="bg-slate-500 h-7 self-end" onClick={counthandle} type='button' value="text" >+1</button>
-      <button className='self-start bg-orange-300' onClick={decreaseCount} type='button' value="text" >-1</button>
+      <h2 className=' self-center'>Click The Button to set count in above component</h2>
+      <div className='self-center'>
+      <button className="bg-slate-500 h-7  rounded-md w-12 hover:bg-slate-700" onClick={counthandle} type='button' value="text" >+1</button>
+      <button className=' bg-orange-300 h-7 rounded-md w-12 hover:bg-orange-500' onClick={decreaseCount} type='button' value="text" >-1</button>
+      </div>
     </div>
   )
 }
@@ -67,7 +69,7 @@ const Currenttime = () => {
     const intervalID = setInterval(() => {
       setCurrenttime(new Date().toLocaleTimeString())
     },1000)
-    return () => clearInterval(intervalID)
+    // return () => clearInterval(intervalID)
   },[])
 
   return (
