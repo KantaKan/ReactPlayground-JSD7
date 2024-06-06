@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
+import Pokemon from './Pokemon'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,7 @@ function App() {
     <CardComp  decreaseCount={decreaseCount} counthandle={handleCount}/>
     <IsToggled />
     <Currenttime />
+    <Pokemon />
     </>
   )
 }
