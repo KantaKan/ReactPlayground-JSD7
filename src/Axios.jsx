@@ -19,12 +19,12 @@ function ProductCard({ product }) {
   
 function MultiActionAreaCard({ product }) {
     return (
-      <Card sx={{ maxWidth: 345, }}>
+      <Card sx={{ maxWidth: 380,}}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="140"
-            sx={{height:345 , objectFit: "cover"}}
+            sx={{height:375 , objectFit: "cover",}}
             image={product.image}
             alt={product.name}
           />

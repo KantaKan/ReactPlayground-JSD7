@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Pokemon from "./Pokemon";
 import Store from "./Axios";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,12 +16,13 @@ function App() {
   };
   return (
     <>
+      <Navbar />
       <div className=" justify-center flex text-4xl bg-yellow-300 font-extrabold text-indigo-400"> count = {count} </div>
       <CardComp decreaseCount={decreaseCount} counthandle={handleCount} />
       <IsToggled className="flex flex-wrap" />
       <Currenttime />
       <Pokemon />
-      <Store/>
+      <Store />
     </>
   );
 }
