@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Box, TextField, Button, Typography, Paper, Avatar, useTheme, Snackbar, Alert } from "@mui/material";
+import { Box, TextField, Button, Typography, Paper, Avatar, Snackbar, Alert } from "@mui/material";
 
 const FormPost = () => {
   const [snackbar, setSnackbar] = useState({
@@ -17,6 +18,8 @@ const FormPost = () => {
   });
 
   const [imagePreview, setImagePreview] = useState("");
+  const navigate = useNavigate();
+
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
   };
@@ -40,12 +43,16 @@ const FormPost = () => {
     try {
       const response = await axios.post("https://store-crud.onrender.com/api/product", formData);
       console.log("Data submitted:", response.data);
+      navigate("/");
     } catch (error) {
       console.error("Error submitting data:", error);
+      setSnackbar({
+        open: true,
+        message: "Failed to submit data",
+        severity: "error",
+      });
     }
   };
-
-  const theme = useTheme();
 
   return (
     <Paper
