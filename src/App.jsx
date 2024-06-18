@@ -7,22 +7,37 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const handleCount = () => {
-    setCount((prev) => prev + 1);
-  };
-  const decreaseCount = () => {
-    setCount((prev) => prev - 1);
-  };
+  // const [count, setCount] = useState(0);
+  // const handleCount = () => {
+  //   setCount((prev) => prev + 1);
+  // };
+  // const decreaseCount = () => {
+  //   setCount((prev) => prev - 1);
+  // };
+
   return (
     <>
       <Navbar />
-      <div className=" justify-center flex text-4xl bg-yellow-300 font-extrabold text-indigo-400"> count = {count} </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pokemon" element={<Pokemon />} />
+        <Route path="/store" element={<Store />} />
+      </Routes>
+    </>
+  );
+}
+
+function Home() {
+  const [count, setCount] = useState(0);
+  const handleCount = () => setCount((prev) => prev + 1);
+  const decreaseCount = () => setCount((prev) => prev - 1);
+
+  return (
+    <>
+      <div className="justify-center flex text-4xl bg-yellow-300 font-extrabold text-indigo-400">count = {count}</div>
       <CardComp decreaseCount={decreaseCount} counthandle={handleCount} />
       <IsToggled className="flex flex-wrap" />
       <Currenttime />
-      <Pokemon />
-      <Store />
     </>
   );
 }
