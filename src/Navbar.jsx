@@ -7,7 +7,7 @@ function NavRoute() {
     <nav className="bg-gray-800 p-4 text-white flex justify-between">
       <Link to="/">Home</Link>
       <Link to="/pokemon">Pokemon</Link>
-      <Link to="/store">Store</Link>
+      <Link to="/Form">Axios.post</Link>
     </nav>
   );
 }

@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Pokemon from "./Pokemon";
 import Store from "./Axios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Form } from "react-router-dom";
 import Navbar from "./Navbar";
+import { Grid } from "@mui/material";
+import CustomImageList from "./ImageComponent";
+import FormPost from "./Form";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -20,8 +23,17 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pokemon" element={<Pokemon />} />
-        <Route path="/store" element={<Store />} />
+        <Route
+          path="/pokemon"
+          element={
+            <div className="flex flex-wrap">
+              <Pokemon /> <Pokemon />
+              <Pokemon /> <Pokemon />
+              <Pokemon /> <Pokemon />
+            </div>
+          }
+        />
+        <Route path="/form" element={<FormPost />} />
       </Routes>
     </>
   );
@@ -34,6 +46,7 @@ function Home() {
 
   return (
     <>
+      <Store />
       <div className="justify-center flex text-4xl bg-yellow-300 font-extrabold text-indigo-400">count = {count}</div>
       <CardComp decreaseCount={decreaseCount} counthandle={handleCount} />
       <IsToggled className="flex flex-wrap" />
