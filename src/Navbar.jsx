@@ -8,6 +8,7 @@ function NavRoute() {
       <Link to="/">Home</Link>
       <Link to="/pokemon">Pokemon</Link>
       <Link to="/Form">Axios.post</Link>
+      <Link to="/grid">Grid</Link>
     </nav>
   );
 }

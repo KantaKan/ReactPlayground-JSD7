@@ -4,7 +4,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Alert, Box, Button, CardActionArea, CardActions, CircularProgress, Modal, Snackbar, TextField } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import { Alert, Box, Button, CardActionArea, CardActions, CircularProgress, Fab, Modal, Snackbar, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function MultiActionAreaCard({ product, onUpdate, onDelete }) {
   const [snackOpen, setSnackOpen] = useState(false);
@@ -72,7 +74,7 @@ function MultiActionAreaCard({ product, onUpdate, onDelete }) {
             {product.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            {product.description || "No description"}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -102,6 +104,7 @@ function MultiActionAreaCard({ product, onUpdate, onDelete }) {
             Edit Product
           </Typography>
           <TextField fullWidth margin="normal" id="name" label="Name" value={editedProduct.name} onChange={handleChange} />
+          <TextField fullWidth margin="normal" id="description" label="Description" value={editedProduct.description} onChange={handleChange} />
           <TextField fullWidth margin="normal" id="quantity" label="Quantity" type="number" value={editedProduct.quantity} onChange={handleChange} />
           <TextField fullWidth margin="normal" id="price" label="Price" type="number" step="0.01" value={editedProduct.price} onChange={handleChange} />
           <TextField fullWidth margin="normal" id="image" label="Image URL" value={editedProduct.image} onChange={handleChange} />
@@ -162,6 +165,13 @@ function Store() {
       ) : (
         data.map((product) => <MultiActionAreaCard key={product._id} product={product} onUpdate={handleUpdate} onDelete={handleDelete} />)
       )}
+      <div className="sticky bottom-14">
+        <Link to="/form">
+          <Fab color="secondary" aria-label="add">
+            <AddIcon />
+          </Fab>
+        </Link>
+      </div>
     </div>
   );
 }

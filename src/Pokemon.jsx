@@ -48,7 +48,7 @@ const Pokemon = () => {
       {loading ? (
         <progress className="progress w-56"></progress>
       ) : (
-        <div className="card lg:card-side bg-base-100 shadow-xl   bg-slate-300 w-2/4">
+        <div className="card lg:card-side bg-base-100 shadow-xl   bg-slate-300 w-full">
           {randomPokemon && (
             <>
               <figure className="">

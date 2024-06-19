@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import { Grid } from "@mui/material";
 import CustomImageList from "./ImageComponent";
 import FormPost from "./Form";
+import BasicGrid from "./GridLayout";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route path="/form" element={<FormPost />} />
+        <Route path="/grid" element={<BasicGrid />} />
       </Routes>
     </>
   );

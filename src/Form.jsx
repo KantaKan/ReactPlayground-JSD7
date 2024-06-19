@@ -15,6 +15,7 @@ const FormPost = () => {
     image: "",
     quantity: "",
     price: "",
+    description: "",
   });
 
   const [imagePreview, setImagePreview] = useState("");
@@ -75,6 +76,7 @@ const FormPost = () => {
       <TextField fullWidth label="Image URL" variant="outlined" name="image" value={formData.image} onChange={handleChange} required />
       <TextField fullWidth label="Price" variant="outlined" name="price" value={formData.price} onChange={handleChange} required />
       <TextField fullWidth label="Quantity" variant="outlined" type="number" name="quantity" value={formData.quantity} onChange={handleChange} required />
+      <TextField fullWidth label="Description" variant="outlined" type="string" name="description" value={formData.description} onChange={handleChange} required />
       <Button type="submit" variant="contained" color="primary" sx={{ alignSelf: "center", mt: 2 }}>
         Submit
       </Button>
